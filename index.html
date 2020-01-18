@@ -25,7 +25,7 @@
             document.getElementById("userName").innerHTML = profile.displayName;
             document.getElementById("userAvatar").innerHTML = profile.pictureUrl;
             document.getElementById("userStatus").innerHTML = profile.statusMessage;
-        }).catch(function (error) {
+        }).catch((err) => {
             console.log('ge profile error: ', err);
         });
 
