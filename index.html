@@ -6,5 +6,34 @@
 
   <body>
     Killer Test 123
+    <p>userId: <span id="userId"></span></p>
+    <p>userName: <span id="userName"></span></p>
+    <p>userAvatar: <span id="userAvatar"></span></p>
+    <p>userStatus: <span id="userStatus"></span></p>
   </body>
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <script>
+    liff.init({
+        liffId: '1653778305-mew8w7Q0'
+
+    }).then(() => {
+        // start to use LIFF's api
+        // initializeApp();
+        console.log("line init success !!")
+        liff.getProfile().then(function (profile) {
+            document.getElementById("userId").innerHTML = profile.userId;
+            document.getElementById("userName").innerHTML = profile.displayName;
+            document.getElementById("userAvatar").innerHTML = profile.pictureUrl;
+            document.getElementById("userStatus").innerHTML = profile.statusMessage;
+        }).catch(function (error) {
+            console.log('ge profile error: ', err);
+        });
+
+    }).catch((err) => {
+        console.log('init error: ', err);
+        // document.getElementById("liffAppContent").classList.add('hidden');
+        // document.getElementById("liffInitErrorMessage").classList.remove('hidden');
+    });
+  </script>
+
 </html>
